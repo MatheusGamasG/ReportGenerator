@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monteiro's Slave</title>
+</head>
+<body>
+    <h2>Please write your text and generate your document</h2>
+    <input id="field" type="text"/>
+    <button id="btn" type="button" onclick="sendInput()">Generate</button>
+</body>
+<script>
+    // Function to send the input value to the main process
+    const chgBtn = document.getElementById("btn");
+    const field = document.getElementById("field");
+
+    chgBtn.onclick = function () {
+        window.electron.send("button-clicked", { data: field.value })
+    }
+</script>  
+</html>

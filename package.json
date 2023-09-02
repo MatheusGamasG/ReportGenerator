@@ -1,0 +1,16 @@
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "Trying to impress",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matheus Guimaraes",
+  "license": "ISC",
+  "dependencies": {
+    "docx": "^8.2.2",
+    "electron": "^26.1.0"
+  }
+}
