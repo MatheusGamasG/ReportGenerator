@@ -1,21 +1,44 @@
 import { useState } from 'react';
-import { useForm } from "react-hook-form";
+import { FieldValue, FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import './styles.css';
+import { Input } from 'renderer/components/Input';
 
 export function Home() {
+
+  interface FirstFormData {
+    km: string;
+    line: string;
+    city: string;
+    state: string;
+    length: number;
+    height: number;
+    width: number;
+    hold: string;
+    gauge: string;
+    fastening: string;
+    [key: string]: string | number;
+  }
+
+
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm<FirstFormData>();
 
-  const onSubmit = (data: any) => {
-    console.log(data);
-    const replacements = {
-      km_input: data.km,
-    };
-    window.electron.ipcRenderer.sendMessage('generate-document', replacements);
+
+
+  const onSubmit: SubmitHandler<FirstFormData> = (data) => {
+    const replacements: Record<string, string | number> = {};
+    console.log(data)
+    for (const key in data) {
+      if (data.hasOwnProperty(key)) {
+        replacements[`${key}_input`] = data[key];
+      }
+    }
+    console.log(replacements);
+    // window.electron.ipcRenderer.sendMessage('generate-document', replacements);
   };
   return (
     <div>
@@ -24,31 +47,42 @@ export function Home() {
         <div className="left">
           <div className="input-text-container">
             <span>KM:</span>
-            <input type="text" {...register('km')} />
+            <Input type="text" name="km" register={register} />
           </div>
           <div className="input-text-container">
             <span>Linha:</span>
-            <input type="text" {...register('line')} />
+            <Input type="text" name="line" register={register}/>
           </div>
           <div className="input-text-container">
             <span>Cidade:</span>
-            <input type="text" {...register('city')} />
+            <Input type="text" name="city" register={register}/>
           </div>
           <div className="input-text-container">
             <span>Estado:</span>
-            <input type="text" {...register('state')}/>
+            <Input type="text" name="state" register={register} />
           </div>
           <div className="input-number-container">
             <span>Comprimento:</span>
-            <input type="number" {...register('length')}/>
+            <Input type="number" name="length" register={register} />
           </div>
           <div className="input-number-container">
             <span>Largura:</span>
-            <input type="number" {...register('width')}/>
+            <Input type="number" name="width" register={register} />
           </div>
           <div className="input-number-container">
             <span>Altura:</span>
-            <input type="number" {...register('height')}/>
+            <Input type="number" name='height' register={register} />
+          </div>
+          <div>
+            <span>Bitola:</span>
+            <Input type="radio" name='gauge' value="larga" register={register} /><label>Larga</label>
+            <Input type="radio" name='gauge' value="tangente" register={register} /><label>Tangente</label>
+          </div>
+          <div>
+            <span>Fixação:</span>
+            <Input type="radio" name='fastening' value="pandrol" register={register} /><label>Pandrol</label>
+            <Input type="radio" name='fastening' value="deenick" register={register} /><label>Deenick</label>
+            <Input type="radio" name='fastening' value="direta" register={register} /><label>Direta</label>
           </div>
         </div>
         <button type="submit" id="generate-docx">
