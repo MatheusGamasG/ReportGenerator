@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import './styles.css';
 
-export default function Home() {
+export function Home() {
   const {
     register,
     handleSubmit,
@@ -28,27 +28,27 @@ export default function Home() {
           </div>
           <div className="input-text-container">
             <span>Linha:</span>
-            <input type="text" id="line" />
+            <input type="text" {...register('line')} />
           </div>
           <div className="input-text-container">
             <span>Cidade:</span>
-            <input type="text" id="city" />
+            <input type="text" {...register('city')} />
           </div>
           <div className="input-text-container">
             <span>Estado:</span>
-            <input type="text" id="state" />
+            <input type="text" {...register('state')}/>
           </div>
           <div className="input-number-container">
             <span>Comprimento:</span>
-            <input type="number" id="length" />
+            <input type="number" {...register('length')}/>
           </div>
           <div className="input-number-container">
             <span>Largura:</span>
-            <input type="number" id="width" />
+            <input type="number" {...register('width')}/>
           </div>
           <div className="input-number-container">
             <span>Altura:</span>
-            <input type="number" id="height" />
+            <input type="number" {...register('height')}/>
           </div>
         </div>
         <button type="submit" id="generate-docx">

@@ -1,13 +1,11 @@
-import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
+import { Router } from './Router';
 import './App.css';
-import Hello from './pages/Home';
+import { BrowserRouter } from 'react-router-dom';
 
 export default function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Hello />} />
-      </Routes>
-    </Router>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   );
 }

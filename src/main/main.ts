@@ -83,7 +83,7 @@ const createWindow = async () => {
     },
   });
 
-  mainWindow.loadURL(resolveHtmlPath('index.html'));
+  mainWindow.loadURL(resolveHtmlPath('/'));
 
   ipcMain.on('generate-document', (event, userData) => {
     console.log("INSIDE GENERATE DOCUMENT")
