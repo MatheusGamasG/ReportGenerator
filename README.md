@@ -20,4 +20,4 @@
 ---
 Built by Fábio Monteiro and Matheus Guimarães 👋🏽
  [![Linkedin Badge](https://img.shields.io/badge/-fabiomrm-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/fabiomrm/)](https://www.linkedin.com/in/fabiomrm/)
- [![Linkedin Badge](https://img.shields.io/badge/-guimaraes-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/fabiomrm/)](https://www.linkedin.com/in/fabiomrm/) 
+ [![Linkedin Badge](https://img.shields.io/badge/-guimaraes-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/matheus-gamas-g/)](https://www.linkedin.com/in/matheus-gamas-g/) 
