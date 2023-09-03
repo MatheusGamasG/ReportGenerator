@@ -3,6 +3,8 @@ import { FieldValue, FieldValues, SubmitHandler, useForm } from "react-hook-form
 import './styles.css';
 import { Input } from 'renderer/components/Input';
 
+import { useReplacementsForm } from '../../../contexts/FormContext';
+
 export function Home() {
 
   interface FirstFormData {
@@ -19,14 +21,7 @@ export function Home() {
     [key: string]: string | number;
   }
 
-
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<FirstFormData>();
-
+  const {register, handleSubmit, getValues } = useReplacementsForm();
 
 
   const onSubmit: SubmitHandler<FirstFormData> = (data) => {
@@ -38,7 +33,7 @@ export function Home() {
       }
     }
     console.log(replacements);
-    // window.electron.ipcRenderer.sendMessage('generate-document', replacements);
+    window.electron.ipcRenderer.sendMessage('generate-document', replacements);
   };
   return (
     <div>
