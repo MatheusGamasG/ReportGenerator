@@ -1,11 +1,11 @@
 import { Router } from './Router';
+import { FormProvider} from '../contexts/FormContext';
 import './App.css';
-import { BrowserRouter } from 'react-router-dom';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <FormProvider>
       <Router />
-    </BrowserRouter>
+    </FormProvider>
   );
 }
